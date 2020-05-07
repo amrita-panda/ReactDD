@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Router,Switch,Route} from 'react-router-dom';
 import {Link } from 'react-router-dom';
 import '../home/home.css';
+import HomePageBody from './homebody';
 
 class Home extends React.Component{
 
@@ -163,7 +164,7 @@ class Home extends React.Component{
 	</div>
 	
 	
-	
+	<div style={{marginTop:'200px'}}><HomePageBody></HomePageBody></div>
 </div>
  
   
