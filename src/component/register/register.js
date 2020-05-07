@@ -1,12 +1,41 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import '../../component/register/register.css'
+import { Link } from 'react-router-dom';
 
 
 class Register extends React.Component{
     constructor(){
         super()
+        this.state=
+        {
+            "email":'',
+            "psw":'',
+            "psw_repeat":''
+
+        }
     }
+
+    setdata=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+        }
+
+    Registeruser=(event)=>{
+        event.preventDefault()
+        console.log(event);
+        const form={
+            "email":this.state.email,
+            "psw":this.state.psw,
+            "psw_repeat":this.state.psw_repeat
+        }
+        console.log(form)
+        
+
+    }
+   
+
     
     
 render(){
@@ -19,21 +48,21 @@ render(){
                 <hr></hr>
 
                 <label ><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required />
+                <input type="text" placeholder="Enter Email" name="email" required onChange={e=>this.setdata(e)} />
 
                 <label ><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required />
+                <input type="password" placeholder="Enter Password" name="psw" required onChange={e=>this.setdata(e)} />
 
                 <label ><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required />
+                <input type="password" placeholder="Repeat Password" name="psw_repeat" required onChange={e=>this.setdata(e)} />
                 <hr></hr>
                 <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-                <button type="submit" className="registerbtn">Register</button>
+                <button type="submit" className="registerbtn" onClick={this.Registeruser}>Register</button>
             </div>
             
             <div className="container signin">
-                <p>Already have an account? <a href="#">Sign in</a>.</p>
+                <p>Already have an account? <Link to='signin'>Sign in</Link>.</p>
             </div>
         </form>
 </div>

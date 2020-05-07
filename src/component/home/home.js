@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Router,Switch,Route} from 'react-router-dom';
 import {Link } from 'react-router-dom';
 import '../home/home.css';
-import HomePageBody from './homebody';
+import HomePageBody from './homebody.component';
 
 class Home extends React.Component{
 

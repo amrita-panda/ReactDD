@@ -1,7 +1,7 @@
-@charset "utf-8"
+@charset "utf-8";
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900');
-
+/* @import './home/homebody.styles.scss'; */
 
 
 *
@@ -18,6 +18,7 @@ body
 	background: #FFFFFF;
 	color: #1e1e27;
 }
+
 div
 {
 	display: block;
@@ -840,4 +841,43 @@ section
 }
 .active{
   border-bottom:2px solid lightgrey
+}
+.menu-item{
+	height:300px;
+	width: 300px;
+	background-color:linen;
+	padding: 10px;
+	margin: 35px;
+	-webkit-box-shadow: -40px 19px 33px -1px rgba(92,85,92,0.8);
+-moz-box-shadow: -40px 19px 33px -1px rgba(92,85,92,0.8);
+box-shadow: -40px 19px 33px -1px rgba(92,85,92,0.8);
+text-align: center;
+	
+}
+.menu-item-sm{
+	height:300px;
+	width:150px;
+	background-color: maroon;
+	padding: 10px;
+	margin:20px;
+-webkit-box-shadow: -40px 19px 33px -1px rgba(92,85,92,0.8);
+-moz-box-shadow: -40px 19px 33px -1px rgba(92,85,92,0.8);
+box-shadow: -40px 19px 33px -1px rgba(92,85,92,0.8);
+border-radius: 25px 108px 25px 132px;
+text-align: center;
+
+
+}
+.big-menu-item{
+
+	box-shadow: -40px 19px 33px -1px rgba(92,85,92,0.8);
+	background-color: lavender;
+	text-align: center;
+	margin-left: 35px;
+	border-radius: 25px 27px 25px 26px;
+	height: 300px;
+	
+}
+.content{
+	margin-top:40%;
 }
