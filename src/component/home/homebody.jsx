@@ -35,7 +35,7 @@ const HomePageBody=()=>(
             </div>
             <div className='menu-item'>
                 <div className='content'>
-                    <h2 className='title'>Glassess</h2>
+                    <h2 className='title'>Glas sess</h2>
                     <span className='subtitle'>SHOP NOW</span>
                 </div>
             </div>   
