@@ -2,10 +2,60 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
 import '../signin/sign.css';
+import {signin} from '../../services/userservices';
+
+
 
 
 class Signin extends React.Component{
-  
+  constructor(){
+    super()
+    this.state={
+      'emailid':'',
+      'password':'',
+      'signin':false,
+      'data':''
+    }
+  }
+  setData=(e)=>
+  {
+    this.setState({
+      [e.target.name]:e.target.value,
+    });
+    this.setState({
+      'signin':true,
+      
+
+    })
+    
+  }
+  Signin=(e)=>{
+    e.preventDefault();
+    this.componentDidMount();
+  }
+  componentDidMount(){
+    if(this.state.signin){
+      var form={
+        'emailid':this.state.emailid,
+        'password':this.state.password,
+      }
+      console.log(form)
+      var url='http://localhost:8084/signinuser'
+      signin(url,form).then(response=> {
+        console.log(response);
+        alert(response.data.data);
+        this.setState({
+          'signin':true,
+          data:response,
+
+        })
+      }).catch((err)=>{
+        console.log(err);
+      })
+    
+  }
+
+  }
     render (){
         return (
         <div>
@@ -34,9 +84,9 @@ class Signin extends React.Component{
           <p>Or sign in manually:</p>
         </div>
 
-        <input type="text" name="username" placeholder="Username" required/>
-        <input type="password" name="password" placeholder="Password" required/>
-        <input type="submit" value="Login"/>
+        <input type="text" name="emailid" placeholder="Username/Email" required onChange={e => this.setData(e)}/>
+        <input type="password" name="password" placeholder="Password" required onChange={e =>this.setData(e)}/>
+        <input type="submit" value="Login" onClick={this.Signin}/>
       </div>
       
     </div>

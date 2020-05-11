@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Router,Switch,Route} from 'react-router-dom';
 import {Link } from 'react-router-dom';
 import '../home/home.css';
 import HomePageBody from './homebody.component';
@@ -63,6 +61,8 @@ class Home extends React.Component{
 									</Link>
 									<ul className="account_selection">
 										<li><i className="fa fa-sign-in" aria-hidden="true"></i><Link to="/signin">Sign In</Link></li>
+										<li><i className="fa fa-user-plus" aria-hidden="true"></i><Link to="/register" >Sign Out</Link></li>
+
 										{/* <Link to="/signin"><button className="fa fa-sign-in"><span>Sign In</span></button></Link> */}
 										<li><i className="fa fa-user-plus" aria-hidden="true"></i><Link to="/register" >Register</Link></li>
 									</ul>

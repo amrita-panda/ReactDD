@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import '../../component/register/register.css'
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import {ajaxpost} from '../../services/userservices';
 
 
 class Register extends React.Component {
@@ -10,8 +11,8 @@ class Register extends React.Component {
         super()
         this.state =
         {
-            "email": '',
-            "psw": '',
+            "emailid": '',
+            "password": '',
             "psw_repeat": '',
             "adduser": false
         }
@@ -35,29 +36,13 @@ class Register extends React.Component {
     componentDidMount() {
         if (this.state.adduser) {
             var form = {
-                "email": this.state.email,
-                "psw": this.state.psw,
-                "psw_repeat": this.state.psw_repeat
+                "emailid": this.state.emailid,
+                "password": this.state.password
+               
             }
             console.log("inside")
-
             var url = 'http://localhost:8084/registeruser'
-            $.ajax({
-                url: url,
-                dataType: 'json',
-                type: 'POST',
-                data: form,
-                success: function (response) {
-                    console.log(response)
-                    alert(response.data)
-                },
-                error: function (xhr, status, err) {
-                    alert("errr",err);
-                }
-
-            })
-
-
+            ajaxpost(url,form);
         } else {
             console.log("something else happen")
         }
@@ -77,10 +62,10 @@ class Register extends React.Component {
                         <hr></hr>
 
                         <label ><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required onChange={e => this.setdata(e)} />
+                        <input type="text" placeholder="Enter Email" name="emailid" required onChange={e => this.setdata(e)} />
 
                         <label ><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required onChange={e => this.setdata(e)} />
+                        <input type="password" placeholder="Enter Password" name="password" required onChange={e => this.setdata(e)} />
 
                         <label ><b>Repeat Password</b></label>
                         <input type="password" placeholder="Repeat Password" name="psw_repeat" required onChange={e => this.setdata(e)} />
