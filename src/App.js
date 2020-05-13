@@ -1,12 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import Register from './component/register/register';
 import Home from './component/home/home';
 import Signin from './component/signin/signin';
 import Adminview from './component/adminview/adminview';
-import UserData from './component/adminview/userlist';
+import Productpage from './component/products/product';
+import SingleProduct from './component/products/singleproduct';
+import Bootstrap from './component/products/bootstrap';
+import Reduxcomponent from './component/products/redux';
 import {Route } from 'react-router-dom';
 import React from 'react';
+import {connect } from 'redux-logger';
+import {setAddVal} from './redux/user/user.actions';
 
 
 function App() {
@@ -16,6 +20,10 @@ function App() {
   <Route exact path='/register'component={Register}></Route>
   <Route exact path='/signin'component={Signin}></Route>
   <Route exact path='/adminview123'component={Adminview}></Route>
+  <Route exact path='/productpage'component={Productpage}></Route>
+  <Route exact path='/productpage/:productId'component={SingleProduct}></Route>
+  <Route exact path='/productpage/Bootstrap'component={Bootstrap}></Route>
+  <Route exact path='/redux'component={Reduxcomponent}></Route>
   </div>
 
     
@@ -24,6 +32,9 @@ function App() {
    
     
   );
-}
-
+} 
+// const mapDispatchToProps= dispatch=>({
+//   setAddVal : user => dispatch(setAddVal(user))
+// })
 export default App;
+ //export default connect(null,mapDispatchToProps)(App);

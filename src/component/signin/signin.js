@@ -3,6 +3,8 @@ import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
 import '../signin/sign.css';
 import {signin} from '../../services/userservices';
+import {connect } from 'react-redux';
+import {Auth_signin} from '../../redux/user/user.actions';
 
 
 
@@ -13,7 +15,6 @@ class Signin extends React.Component{
     this.state={
       'emailid':'',
       'password':'',
-      'signin':false,
       'data':''
     }
   }
@@ -23,7 +24,7 @@ class Signin extends React.Component{
       [e.target.name]:e.target.value,
     });
     this.setState({
-      'signin':true,
+      'dosignin':true,
       
 
     })
@@ -34,7 +35,7 @@ class Signin extends React.Component{
     this.componentDidMount();
   }
   componentDidMount(){
-    if(this.state.signin){
+    if(this.state.dosignin){
       var form={
         'emailid':this.state.emailid,
         'password':this.state.password,
@@ -44,16 +45,18 @@ class Signin extends React.Component{
       signin(url,form).then(response=> {
         console.log(response);
         alert(response.data.data);
-        this.setState({
-          'signin':true,
-          data:response,
-
-        })
+        if(response.data.data){
+          const {currentUser}=this.props;
+        //   setCurrentUser({
+        //     signin:this.props.signin,
+            
+        // })
+        }
       }).catch((err)=>{
         console.log(err);
       })
-    
-  }
+    }
+  
 
   }
     render (){
@@ -110,4 +113,13 @@ class Signin extends React.Component{
     }
 
 }
+// const mapStateToProps=state=>({
+//   signin:state.user.sign,
+
+// })
+// const mapDispatchToProps= dispatch=>({
+//   setCurrentUser : user => dispatch(Auth_signin(user)),
+
+// })
 export default Signin;
+// export default connect(mapStateToProps,mapDispatchToProps) (Signin);

@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePageBody=()=>(
     <div className='maindiv container-fluid'>
         <div className='innerdiv row'>
+            <Link to='/productpage'>
             <div className='menu-item col-sm-3'>
                 <div className='content'>
                     <h2 className='title'>Hats</h2>
                     <span className='subtitle'>SHOP NOW</span>
                 </div>
             </div> 
+            </Link>
             <div className='menu-item col-sm-3'>
                 <div className='content'>
                     <h2 className='title'>Hats</h2>

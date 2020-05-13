@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import '../../component/register/register.css'
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
