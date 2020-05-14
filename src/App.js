@@ -5,12 +5,11 @@ import Signin from './component/signin/signin';
 import Adminview from './component/adminview/adminview';
 import Productpage from './component/products/product';
 import SingleProduct from './component/products/singleproduct';
-import Bootstrap from './component/products/bootstrap';
+import AlertDismissible from './component/products/bootstrap';
 import Reduxcomponent from './component/products/redux';
 import {Route } from 'react-router-dom';
 import React from 'react';
-import {connect } from 'redux-logger';
-import {setAddVal} from './redux/user/user.actions';
+
 
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
   <Route exact path='/adminview123'component={Adminview}></Route>
   <Route exact path='/productpage'component={Productpage}></Route>
   <Route exact path='/productpage/:productId'component={SingleProduct}></Route>
-  <Route exact path='/productpage/Bootstrap'component={Bootstrap}></Route>
+  <Route exact path='/Bootstrap'component={AlertDismissible}></Route>
   <Route exact path='/redux'component={Reduxcomponent}></Route>
   </div>
 
