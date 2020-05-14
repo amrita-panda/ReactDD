@@ -302,7 +302,7 @@ function AlertDismissible(){
   </Card.Body>
 
 </Card>
-<Card style={{ width: '18rem' }}>
+<Card style={{ width: '20rem' }}>
   <Card.Header>Featured</Card.Header>
   <ListGroup variant="flush">
     <ListGroup.Item>Cras justo odio</ListGroup.Item>
